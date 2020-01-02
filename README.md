@@ -75,7 +75,7 @@ https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/classic/access-log
         
 
      
-자세한 사용법은 https://www.npmjs.com/package/elb-log-analyzer 를 참고할 수 있습니다.   
+    자세한 사용법은 https://www.npmjs.com/package/elb-log-analyzer 를 참고할 수 있습니다.   
 
 2. chart.ejs 에서 차트를 보여줄 영역을 지정합니다.   
 
@@ -91,7 +91,7 @@ https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/classic/access-log
 
 3. 추가하고 싶은 차트를 생성합니다.  
 
-```let chart = new google.visualization.ColumnChart(document.getElementById('elb_status_code_div'));```    
+    ```let chart = new google.visualization.ColumnChart(document.getElementById('elb_status_code_div'));```    
 
 
 
