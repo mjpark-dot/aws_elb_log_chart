@@ -79,14 +79,14 @@ https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/classic/access-log
 
 2. chart.ejs 에서 차트를 보여줄 영역을 지정합니다.   
 
-```<div id="elb_status_code_div" style="width: 1900px; height: 500px;"></div>```   
+    ```<div id="elb_status_code_div" style="width: 1900px; height: 500px;"></div>```   
 
 
 3. draw 함수를 추가합니다.  
 ```google.setOnLoadCallback( /*drawFunc*/ )```  
 
     해당데이터를 dataObj 에서 추출하여 dataTable에 적용합니다.  
-google.visualization.arrayToDataTable(dataTable);  
+```google.visualization.arrayToDataTable(dataTable); ``` 
 
 
 3. 추가하고 싶은 차트를 생성합니다.  
