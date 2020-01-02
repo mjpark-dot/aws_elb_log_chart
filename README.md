@@ -1,6 +1,6 @@
-# aws elb-log-chart
-elb-log-analyzer 와 google chart를 이용하여 ELB Log를 나타냅니다  
-show elb log using google chart
+# AWS_ELB_LOG_CHART  
+elb-log-analyzer 와 google chart를 이용하여 ELB Log를 나타냅니다    
+show elb log using google chart      
 
 
 
