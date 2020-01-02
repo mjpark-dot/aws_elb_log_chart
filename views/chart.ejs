@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chart</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script> <!--old version-->
+    
+</head>
+<body>
+    <h1 align="center">ELB LOG CHART!!</h1>
+    <div id="request_chart_div" style="width: 2000px; height: 500px;"></div>
+    <div id="elb_status_code_div" style="width: 1900px; height: 500px;"></div>
+    <script>
+        //Load the Visualization API and the corechart pakage.
+        google.load("visualization", "1", {packages: ["corechart", "timeline"]});//old version. new is not work.
+
+        //Set a callback to run when the Goggle Visualization API is loaded.
+        google.setOnLoadCallback(drawChartRequest);
+        google.setOnLoadCallback(drawCharElbStatusCode); //여러개 하는 경우
+
+        //Callback that creates and populates a data table,
+        //instantiates the pie chart, passes in the data and draws it.
+
+        function getChartData(key){
+            let chartData =JSON.parse('<%- JSON.stringify(dataObj )%>');
+            chartData = chartData[key];
+            return chartData;
+        }
+        function drawChartRequest(){
+            let requestUrl = getChartData('request');
+           
+            //create the data table.         
+            let dataTable = [];
+            dataTable.push(['request', 'count']);
+            for(let i=0; i<requestUrl.length; i++){
+                let arr = requestUrl[i].split('-');
+                dataTable.push( [arr[2], Number(arr[1])]); //request, count
+            }
+            let data = google.visualization.arrayToDataTable(dataTable);
+
+            //Set chart options
+            let options = {               
+                    title :'Request url count    (<%=startDate%> ~ <%=endDate%>)',
+                    chartArea : {width: '40%'}
+                };
+
+            //Instantiate and draw the chart, passing in some options.
+            let chart = new google.visualization.BarChart(document.getElementById('request_chart_div'));
+            chart.draw(data, options); 
+        }
+        
+        function drawCharElbStatusCode(){
+
+            let requestUrl =JSON.parse('<%- JSON.stringify(dataObj )%>');
+           requestUrl = requestUrl.elb_status_code;
+
+           let dataTable = [];
+           dataTable.push(['elb_status_code', 'count', { role: 'style' }, { role: 'annotation' }]); //--col1=count --col2=client:port --col3=elb_status_code
+           for(let i=0; i<requestUrl.length; i++){                                                  //"1-383-180.81.107.106:2854-304"
+               let arr = requestUrl[i].split('-');
+               dataTable.push( [ arr[3], Number(arr[1]), 'gold',arr[2] ]); 
+           }
+           let data = google.visualization.arrayToDataTable(dataTable);
+           let options = {               
+                    title :'elb_status_code count and port    (<%=startDate%> ~ <%=endDate%>)',
+                    hAxis : { title : 'elb_status_code'},
+                    vAxis : { title : 'count'},
+                    colors:['gold', 'black'] 
+                };
+
+           let chart = new google.visualization.ColumnChart(document.getElementById('elb_status_code_div'));
+           chart.draw(data, options); 
+
+        }
+
+        
+    </script>
+ </body>
+</html>

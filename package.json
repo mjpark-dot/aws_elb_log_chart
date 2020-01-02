@@ -1,0 +1,18 @@
+{
+  "name": "elblogchart",
+  "version": "0.0.1",
+  "description": "show elb log by google chart",
+  "main": "server.js",
+  "dependencies": {
+    "aws-sdk": "^2.575.0",
+    "byline": "^5.0.0",
+    "ejs": "^2.7.4",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mj",
+  "license": "ISC"
+}
