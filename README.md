@@ -90,7 +90,14 @@ google.visualization.arrayToDataTable(dataTable);
 
 3. 추가하고 싶은 차트를 생성합니다.  
 ex)  
-```let chart = new google.visualization.ColumnChart(document.getElementById('elb_status_code_div'));```
+```let chart = new google.visualization.ColumnChart(document.getElementById('elb_status_code_div'));```    
 
 
 
+
+
+
+
+
+![barchart](https://user-images.githubusercontent.com/54760467/71670514-67144900-2db3-11ea-9715-b96ddd54404f.PNG)
+![columnchart](https://user-images.githubusercontent.com/54760467/71670519-6976a300-2db3-11ea-8c7b-5c25823a14f2.PNG)
