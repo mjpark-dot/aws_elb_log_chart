@@ -4,7 +4,7 @@
   "description": "show elb log by google chart",
   "main": "server.js",
   "dependencies": {
-    "aws-sdk": "^2.575.0",
+    "aws-sdk": "^2.814.0",
     "byline": "^5.0.0",
     "ejs": "^2.7.4",
     "express": "^4.17.1"
